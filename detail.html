@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-family: 'Roboto', Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 500px;
+            height: auto;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="wrestler-name">Wrestler Details</h1>
+    <img id="wrestler-image" src="" alt="Wrestler Image">
+    <p id="wrestler-team"></p>
+    <p id="wrestler-weight"></p>
+    <p id="wrestler-achievements"></p>
+
+   
+    <div class="back-link">
+        <a href="index.html">Back to Wrestler List</a>
+    </div>
+
+    <script>
+        const wrestlers = [
+            { id: 1, name: 'Antrell Taylor', team: 'Nebraska', weight: 157, achievements: '1x All-American', imageUrl: 'https://pbs.twimg.com/profile_images/1741285552379338752/fsP_NFlZ_400x400.jpg' },
+            { id: 2, name: 'Jesse Mendez', team: 'Ohio State', weight: 141, achievements: '2024 Big Ten Champion and National Champ', imageUrl: 'https://www.nbc4i.com/wp-content/uploads/sites/18/2024/03/GettyImages-2097697795.jpg?w=2560&h=1440&crop=1' },
+            { id: 3, name: 'Parker Keckeisen', team: 'Northern Iowa', weight: 197, achievements: '4x All American, 2x NCAA Finalist, and Undefeated National Champ', imageUrl: 'https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Funi.sidearmsports.com%2Fimages%2F2022%2F3%2F5%2F20220305182924_LL_T4013.JPG&height=300&type=webp' },
+            { id: 4, name: 'Maxx Mayfield', team: 'Northwestern', weight: 165, achievements: '2x National Qualifier', imageUrl: 'https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fnusports.com%2Fimages%2F2023%2F6%2F20%2F230305-WRSTatBigTens-RK0105_CMa0n.JPG&height=300&type=webp' },
+            { id: 5, name: 'Dean Hamiti', team: 'Oklahoma', weight: 174, achievements: '3x All American', imageUrl: 'https://d2779tscntxxsw.cloudfront.net/66045f43bc5e6.png?width=1200&quality=80' }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const wrestlerId = parseInt(urlParams.get('id'));
+
+        const selectedWrestler = wrestlers.find(wrestler => wrestler.id === wrestlerId);
+
+        if (selectedWrestler) {
+            document.getElementById('wrestler-name').textContent = selectedWrestler.name;
+            document.getElementById('wrestler-team').textContent = `Team: ${selectedWrestler.team}`;
+            document.getElementById('wrestler-weight').textContent = `Weight Class: ${selectedWrestler.weight}`;
+            document.getElementById('wrestler-achievements').textContent = `Achievements: ${selectedWrestler.achievements}`;
+            document.getElementById('wrestler-image').src = selectedWrestler.imageUrl;
+        }
+    </script>
+</body>
+</html>
+
+
+

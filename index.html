@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f4f4f9, #cce7ff);
+            color: #333;
+            font-family: 'Roboto', Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            color: #444;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        li {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            width: 250px;
+            text-align: center;
+        }
+        li:hover {
+            transform: scale(1.05);
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            width: 100px;
+            border-radius: 50%;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .banner img {
+            width: 50%;
+            height: auto;
+        }
+        .banner h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 50px;
+            text-shadow: 2px 2px 5px black;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="banner">
+        <img src="https://publications.learfield.com/cdn/shop/collections/MWR_I_H_RS_FC_1200x1200.png?v=1591712293"alt="Banner">
+        <h1>Best Current Wrestlers</h1>
+    </div>
+
+    <ul id="wrestler-list"></ul>
+
+    <script>
+       
+        const wrestlers = [
+            { id: 1, name: 'Antrell Taylor', team: 'Nebraska', weight: 157, imageUrl: 'https://pbs.twimg.com/profile_images/1741285552379338752/fsP_NFlZ_400x400.jpg' },
+            { id: 2, name: 'Jesse Mendez', team: 'Ohio State', weight: 141, imageUrl: 'https://www.nbc4i.com/wp-content/uploads/sites/18/2024/03/GettyImages-2097697795.jpg?w=2560&h=1440&crop=1' },
+            { id: 3, name: 'Parker Keckeisen', team: 'Northern Iowa', weight: 197, imageUrl: 'https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Funi.sidearmsports.com%2Fimages%2F2022%2F3%2F5%2F20220305182924_LL_T4013.JPG&height=300&type=webp' },
+            { id: 4, name: 'Maxx Mayfield', team: 'Northwestern', weight: 165, imageUrl: 'https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fnusports.com%2Fimages%2F2023%2F6%2F20%2F230305-WRSTatBigTens-RK0105_CMa0n.JPG&height=300&type=webp' },
+            { id: 5, name: 'Dean Hamiti', team: 'Oklahoma', weight: 174, imageUrl: 'https://d2779tscntxxsw.cloudfront.net/66045f43bc5e6.png?width=1200&quality=80' }
+        ];
+
+        
+        const wrestlerList = document.getElementById('wrestler-list');
+        wrestlers.forEach(item => {
+            const listItem = document.createElement('li');
+            const image = document.createElement('img');
+            const link = document.createElement('a');
+
+            image.src = item.imageUrl;
+            image.alt = item.name;
+            link.href = `detail.html?id=${item.id}`;
+            link.textContent = item.name;
+
+            listItem.appendChild(image);
+            listItem.appendChild(link);
+            wrestlerList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
